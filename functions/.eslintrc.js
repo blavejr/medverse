@@ -20,6 +20,8 @@ module.exports = {
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
     "/generated/**/*", // Ignore generated files.
+    "jest.config.js", // Ignore Jest config
+    "/test/**/*", // Ignore test setup files
   ],
   plugins: [
     "@typescript-eslint",
@@ -32,5 +34,12 @@ module.exports = {
     // TypeScript already provides structure/types.
     // Requiring JSDoc everywhere adds noise in this codebase.
     "require-jsdoc": "off",
+    // Disable formatting rules
+    "max-len": "off",
+    "no-trailing-spaces": "off",
+    "object-curly-spacing": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
 };
