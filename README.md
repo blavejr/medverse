@@ -309,9 +309,9 @@ functions/
 
 ## Bonus Features Implemented
 
-✅ **Authentication** - JWT tokens with Bearer header authentication  
-✅ **Unit Tests** - 32 passing tests covering utils and middleware  
-✅ **List Sessions** - Filtering by status/region with pagination
+**Authentication** - JWT tokens with Bearer header authentication  
+**Unit Tests** - 32 passing tests covering utils and middleware  
+**List Sessions** - Filtering by status/region with pagination
 
 ---
 
