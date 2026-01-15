@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "eb5f4a08-d18c-46f7-b059-3caf96a7a959",
+		"name": "Medverse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1982435"
+	},
+	"item": [
+		{
+			"name": "session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"   const response = pm.response.json();",
+							"   ",
+							"   if (response.success && response.token && response.session) {",
+							"       pm.environment.set(\"token\", response.token);",
+							"       pm.environment.set(\"sessionId\", response.session.id);",
+							"       console.log(\"Token saved:\", response.token);",
+							"       console.log(\"Session ID saved:\", response.session.id);",
+							"   }"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "region",
+							"value": "eu-central",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5001/{{appName}}/{{slug}}/createSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"{{appName}}",
+						"{{slug}}",
+						"createSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/{{appName}}/{{slug}}/getSession?id={{sessionId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"{{appName}}",
+						"{{slug}}",
+						"getSession"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{sessionId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sessions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/{{appName}}/{{slug}}/listSessions?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"{{appName}}",
+						"{{slug}}",
+						"listSessions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "session",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "active",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5001/{{appName}}/{{slug}}/updateSessionStatus?id={{sessionId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"{{appName}}",
+						"{{slug}}",
+						"updateSessionStatus"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{sessionId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
