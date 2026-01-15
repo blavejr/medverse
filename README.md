@@ -30,10 +30,20 @@ firebase deploy --only functions
 npm run deploy:firestore:rules
 ```
 
-## Postman
+## Quick Testing
 
-if you use postman I have included a handy postman export, which you can import into potman and easily test the endpoints
-`Medverse.postman_collection.json`
+### Bash Script
+Run the automated test script to test all endpoints:
+Note: this hits the live endpoints
+```bash
+./test-api
+```
+
+### Postman
+Import the collection for easy API testing:
+```
+Medverse.postman_collection.json
+```
 
 ## API Endpoints
 
